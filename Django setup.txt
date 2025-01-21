@@ -1,0 +1,7 @@
+Models importats de Django a través de la base de dades
+from models import UserAuthenticationInfo
+
+class MissatgeXat(models.Model):
+El remitent és vinculat a l'usuari mitjançant un model amb la opció de suprimir-lo en cas de necessitat.
+receptor = models.ForeignKey(User) eliminant-ho al utilitzar models.CASCADE i related_name='missatges'
+Missatge = camp de text dels models

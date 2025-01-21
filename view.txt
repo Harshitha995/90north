@@ -1,0 +1,9 @@
+from django.shortcuts import render
+from.models import ChatMessage
+from django.contrib.auth.decorators import login_required
+
+@login_required
+def chat_view(request):
+users = User.objects.exclude(id=request.user.id)
+messages = ChatMessage.objects.filter(receiver=request.user).order_by('timestamp')
+return render(request, 'chat.html', {'users': users, messages': messages})
